@@ -18,6 +18,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <!---fonts-->
+ <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link href='//fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!---fonts-->
@@ -56,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<i class="icon-bar"></i>
 							</button>				  
 							<div class="navbar-brand">
-								<h1><a href="index.html">Planet Hosting</a></h1>
+								<h1><a href="index.html"><span style="color: #e7663f;">CED</span> <span style="color: #585ca7;"><strong>HOSTING</strong></span> </a></h1>
 							</div>
 						</div>
 
@@ -65,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="index.html">Home <i class="sr-only">(current)</i></a></li>
 								<li><a href="about.html">About</a></li>
-								<li class="dropdown">
+								<!-- <li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages<i class="caret"></i></a>
 										<ul class="dropdown-menu">
 											<li><a href="blog.html">Blog</a></li>
@@ -78,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<li><a href="login.html">Login</a></li>
 											<li><a href="portfolio.html">Portfolio</a></li>
 										</ul>
-									</li>
+									</li> -->
 								<li><a href="services.html">Services</a></li>
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
@@ -89,8 +90,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<li><a href="cmshosting.html">CMS Hosting</a></li>
 									</ul>			
 								</li>
-								<li><a href="codes.html">Codes</a></li>
+								<li><a href="pricing.html">Pricing</a></li>
+								<!-- <li><a href="codes.html">Codes</a></li> -->
+								<li><a href="blog.html">Blog</a></li>
 								<li><a href="contact.html">Contact</a></li>
+								<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+								<li><a href="login.html">Login</a></li>
 							</ul>
 									  
 						</div><!-- /.navbar-collapse -->
