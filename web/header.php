@@ -1,3 +1,5 @@
+
+
 <div class="header">
 			<div class="container">
 				<nav class="navbar navbar-default">
@@ -38,10 +40,22 @@
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
 									<ul class="dropdown-menu">
-										<li><a href="linuxhosting.php">Linux hosting</a></li>
+									<?php
+											include '../logics/Product.php';
+											$product=new Product();
+											$data=$product->select();
+											$no_r=$data->num_rows;
+											for($i=0;$i<$no_r;$i++)
+											{
+												$row=$data->fetch_assoc();
+
+									?>
+									<li><a href="#"><?php echo $row['prod_name'];?></a></li>
+									<?php }?>
+										<!-- <li><a href="linuxhosting.php">Linux hosting</a></li>
 										<li><a href="wordpresshosting.php">WordPress Hosting</a></li>
 										<li><a href="windowshosting.php">Windows Hosting</a></li>
-										<li><a href="cmshosting.php">CMS Hosting</a></li>
+										<li><a href="cmshosting.php">CMS Hosting</a></li> -->
 									</ul>			
 								</li>
 								<li><a href="pricing.php">Pricing</a></li>
