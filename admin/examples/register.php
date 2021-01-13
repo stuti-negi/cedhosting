@@ -130,6 +130,7 @@
         </svg>
       </div>
     </div>
+    </div>
     <!-- Page content -->
     <div class="container mt--8 pb-5">
       <!-- Table -->
@@ -198,7 +199,7 @@
         </div>
       </div>
     </div>
-  </div>
+ 
   <!-- Footer -->
   <footer class="py-5" id="footer-main">
     <div class="container">

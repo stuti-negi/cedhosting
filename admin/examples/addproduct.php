@@ -281,12 +281,12 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Google maps</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">Add Product</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Maps</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Google maps</li>
+                  <li class="breadcrumb-item"><a href="#">Products</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Add Product</li>
                 </ol>
               </nav>
             </div>
@@ -299,14 +299,66 @@
       </div>
     </div>
     <!-- Page content -->
-    <div class="container-fluid mt--6">
-      <div class="row">
-        <div class="col">
-          <div class="card border-0">
-            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
+    <div class="container mt--4 pb-5">
+      <!-- Table -->
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+          <div class="card bg-secondary border-0">
+            <div class="card-header bg-transparent pb-2">
+              <div class="text-muted text-center mt-2 mb-4"><strong>ADD NEW PRODUCT</strong></div>
+              <div class="text-center">
+              
+              </div>
+            </div>
+            <div class="card-body px-lg-5 py-lg-3">
+              <div class="text-center text-muted mb-4">
+                <small>Or sign up with credentials</small>
+              </div>
+              <form role="form">
+                <div class="form-group">
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Name" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-merge input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Email" type="email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Password" type="password">
+                  </div>
+                </div>
+                <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
+                <div class="row my-4">
+                  <div class="col-12">
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                      <label class="custom-control-label" for="customCheckRegister">
+                        <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary mt-4">Create Category</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+    </div>
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">

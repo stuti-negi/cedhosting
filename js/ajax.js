@@ -5,7 +5,7 @@ $('#login').click(function(){
     var password=$('#lpassword').val();
     console.log(email);
     $.ajax({
-       url:"../logics/userhelper.php",
+       url:"logics/userhelper.php",
        method:"POST",
        data:{
            case:'l',
@@ -16,7 +16,7 @@ $('#login').click(function(){
         if(data=='1')
         {
             alert("Logged in successfully");
-            window.location.replace("../admin/examples/dashboard.php");
+            window.location.replace("admin/examples/dashboard.php");
         }
         else if(data=='2'){
             alert("Logged in failed password didn't match");

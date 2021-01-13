@@ -150,7 +150,7 @@ input[type=number] {
                         </div>
                 <div class="clearfix"> </div>
                 <div class="register-but">
-                        <input type="submit" value="submit" name="SIGNUP" id="signup">
+                        <input type="button" value="submit" name="SIGNUP" id="signup">
                         <div></div>
                         <div class="error-msg"></div>
                         <div class="clearfix"> </div>
@@ -256,7 +256,7 @@ $('#signup').click(function(){
             var answer=$('#answer').val();
             var password=$('#password').val();
             $.ajax({
-               url:"../logics/userhelper.php",
+               url:"logics/userhelper.php",
                method:"POST",
                data:{
                    case:'s',
@@ -271,7 +271,7 @@ $('#signup').click(function(){
                 if(data=='1')
                 {
                     alert("sign up sucessfull");
-                    window.location.replace("login.php");
+                    window.location.replace('login.php');
                 }
                 else{
                     alert("sign up failed");

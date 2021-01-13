@@ -15,6 +15,7 @@ $case=$_POST['case'];
         $answer=trim($_POST['answer']);
         $pswd=trim($_POST['password']);
         $data=$user->insertsignupdetails($email,$name,$mobile,$pswd,$question,$answer);
+        echo $data;
         // echo $name.':'.$email;
         break;
         // -------------for login-----------------------------

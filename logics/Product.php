@@ -10,7 +10,7 @@ class Product
    } 
     function select()
     {
-        $select_query="SELECT `prod_name` FROM `tbl_product` WHERE `prod_parent_id`='1' AND `prod_available`='1'"; 
+        $select_query="SELECT `prod_name`,`prod_link` FROM `tbl_product` WHERE `prod_parent_id`='1' AND `prod_available`='1'"; 
        $result=$this->dbconn->query($select_query);
         if($result->num_rows>0)
         {
