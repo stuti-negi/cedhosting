@@ -94,7 +94,13 @@ $user=new User();
             $product=new Product();
             $arr=$product->showallProducts();
             echo $arr;
-            
-
+        break;
+        case 'pdetails':
+            $id=$_POST['id'];
+            include_once 'Product.php';//show product details on hosting.php
+            $product=new Product();
+            $json=$product->prodDetails($id);
+            echo $json;
+        break;
     }
 

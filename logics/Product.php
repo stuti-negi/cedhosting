@@ -94,9 +94,30 @@ public function showallProducts()
         return json_encode($arr);
     
     }
-
+public function prodDetails($id)
+{
+    $sql="SELECT * FROM `tbl_product_description` WHERE `prod_id`=$id";
+    $data=$this->dbconn->query($sql);
+     $arr['data']=array();
+        while ($row=$data->fetch_assoc()) {
+           
+            $decoded_description=json_decode($row['description']);
+            $webspace=$decoded_description->{'webspacein'};
+            $bandwidth=$decoded_description->{'bandwidthin'};
+            $freedomain=$decoded_description->{'freedomain'};
+            $languagetechnology=$decoded_description->{'language'};
+            $mailbox=$decoded_description->{'mailbox'};
+            $url=$decoded_description->{'pageurl'};
+           
+            $arr['data'][]=json_encode(array($row['mon_price'],$row['annual_price'],$row['sku'],$webspace,$bandwidth,$freedomain,$languagetechnology,$mailbox,$url,$row['id']));
+            json_encode($arr);
+        }
+        echo json_encode($arr);
 
 }
 
-
+}
+// $db1=new Product();
+// // $db1->showallProducts();
+// $db1->prodDetails(2);
 ?>

@@ -48,7 +48,7 @@
 												$row=$data->fetch_assoc();
 
 									?>
-									<li><a href="<?php echo $row['prod_link'];?>"><?php echo $row['prod_name'];?></a></li>
+									<li><a href="hosting.php?id=<?php echo $row["id"];?>&name=<?php echo $row['prod_name'];?>"><?php echo $row['prod_name'];?></a></li>
 									<?php }?>
 										<!-- <li><a href="linuxhosting.php">Linux hosting</a></li>
 										<li><a href="wordpresshosting.php">WordPress Hosting</a></li>
