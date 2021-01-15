@@ -1,5 +1,3 @@
-
-
 <div class="header">
 			<div class="container">
 				<nav class="navbar navbar-default">

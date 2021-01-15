@@ -296,12 +296,12 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Create Category</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">View Category</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                   <li class="breadcrumb-item"><a href="#">Products</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Create Category</li>
+                  <li class="breadcrumb-item active" aria-current="page">View Category</li>
                 </ol>
               </nav>
             </div>
@@ -314,81 +314,30 @@
       </div>
     </div>
     <!-- Page content -->
-    <div class="container mt--4 pb-5">
+    <div class="container mt-4 pb-5">
       <!-- Table -->
-      <div class="row justify-content-center">
-        <div class="col-lg-6 col-md-8">
-          <div class="card bg-secondary border-0">
-            <div class="card-header bg-transparent pb-2">
-              <div class="text-muted text-center mt-2 mb-4"><strong>CREATE NEW CATEGORY</strong></div>
-              <div class="text-center">
-              
-              </div>
-            </div>
-            <div class="card-body px-lg-5 py-lg-3">
-              <form role="form">
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-pen-square"></i></span>
-                    </div>
-                    <input class="form-control" type="text" value=" HOSTING" disabled>
-                 
-                  </div>
-                </div>
-                <div class="form-group">
-                <label class='text-light'>CATEGORY :</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="far fa-plus-square"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Enter Category Name" type="text" id="cat_name">
-                  </div>
-                </div>
-                <div class="form-group">
-                <label class='text-light'>LINK :</label>
-                   <div class="input-group input-group-merge input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-external-link-alt"></i></span>
-                    </div>
-                     <textarea class="form-control link"></textarea>
-                    <!-- <input class="form-control" placeholder="Link" type="text" id="link"> -->
-                  </div> 
-                 
-
-                </div>
-                <!-- <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div> -->
-                <div class="row my-4">
-                  <div class="col-12">
-                    <div class="custom-control custom-control-alternative custom-checkbox">
-                      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                      <label class="custom-control-label" for="customCheckRegister">
-                        <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-center">
-                  <button type="button" class="btn btn-primary mt-4" id="create_category">Create Category</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+     
     <!-- databtable to display table of description -->
     <div class="container">
 <table class="table bg-dark  text-center" width="100%" id='datatable' >
 
     <thead class="text-white ">
   <tr >
-    <th scope="col">PARENT NAME</th>
-    <th scope="col">CATEGORY NAME</th>
-    <th scope="col">CATEGORY AVAILABILTY</th>
-    <th scope="col">LAUNCH DATE</th>
-    <th scope="col">ACTION</th>
-    <th scope="col">ACTION</th>
+  <th>Product Parent Name</th>
+                        <th>Product Name</th>
+                        <th>Link</th>
+                        <th>Product Availability</th>
+                        <th>Product Launch Date</th>
+                        <th>Monthly Price</th>
+                        <th>Annual price</th>
+                        <th>SKU</th>
+                        <th>Webspace</th>
+                        <th>Bandwidth</th>
+                        <th>Free Domain</th>
+                        <th>Language Technology</th>
+                        <th>MailBox</th>
+                        <th>Action</th>
+   
     </tr>
     </thead>
   </table>
@@ -472,32 +421,30 @@ var table=$("#datatable").DataTable({
   "scrollX": true,
     "ajax":{
                  "url":"../../logics/userhelper.php",
-                 "dataSrc" :"",
+                 "dataSrc" :"data",
                  "type": "POST",
                  "data": {
-        "case": 't'
+        "case": 'vutb'
     }
+
              },
-             "columns" :[
-                 {"data":"id"},
-                 {"data":"prod_parent_id"},
-                 {"data":"prod_name"},
-                 {"data":"prod_available"},
-                 {"data":"prod_launch_date"},
-                 {"defaultContent": "<button class='btn btn-outline-success'>EDIT</button><button class='btn btn-outline-danger'>DELETE</button>"}
-                
-             ]
+             "columnDefs": [ {
+            "targets": -1,
+            "data": null,
+            "defaultContent": "<button class='btn btn-outline-success'>EDIT</button><button class='btn btn-outline-danger'>DELETE</button>"
+        } ]
+             
  
              
 });
 $('#datatable tbody').on( 'click', 'button.btn-outline-success', function () {
         var data = table.row( $(this).parents('tr') ).data();
-        alert( data.id );
+        alert( data[0] );
     } );
 
     $('#datatable tbody').on( 'click', 'button.btn-outline-danger', function () {
         var data = table.row( $(this).parents('tr') ).data();
-        alert( data.id );
+        alert( data[0] );
     } );
 });
 
