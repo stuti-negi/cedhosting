@@ -60,7 +60,7 @@
 								<!-- <li><a href="codes.php">Codes</a></li> -->
 								<li><a href="blog.php">Blog</a></li>
 								<li><a href="contact.php">Contact</a></li>
-								<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+								<li><a href="cart.php"><i class="fas fa-shopping-cart"></i></a></li>
 								<li><a href="login.php">Login</a></li>
 							</ul>
 									  

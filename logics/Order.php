@@ -20,9 +20,9 @@
 // echo "<pre>";
 // echo json_encode($res);
 // echo "</pre>";
-include_once 'Product.php';
-$product=new Product();
-$arr=$product->showallProducts();
+// include_once 'Product.php';
+// $product=new Product();
+// $arr=$product->showallProducts();
 // $row= array();
 // while($rows=$arr->fetch_array(MYSQLI_ASSOC))
 // {
@@ -44,6 +44,19 @@ $arr=$product->showallProducts();
 // echo "<pre>";
 // echo print_r($row);
 // echo "</pre>";
-
-           
+session_start();
+if(isset($_SESSION['cart']))
+{
+    //  $c;
+    // echo "<pre>";
+    // print_r($_SESSION['cart']);
+    // $_SESSION['cart'];
+    // echo "-------------------";
+    $arr=($_SESSION['cart']);
+    // echo "<pre>";
+   echo(json_encode($arr));
+//    print_r($arr);
+        // print_r($_SESSION['user']);
+}
+    // unset($_SESSION['cart']) ;      
 ?>  

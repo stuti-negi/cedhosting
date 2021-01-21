@@ -24,6 +24,9 @@ $('#login').click(function(){
         else if(data=='0'){
             alert("no such data found");
         }
+        else if(data=='-1'){
+            alert("You are an in-active user");
+        }
         else{
             alert("error");
         }

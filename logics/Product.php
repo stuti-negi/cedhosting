@@ -115,9 +115,39 @@ public function prodDetails($id)
         echo json_encode($arr);
 
 }
+public function cartProducts($id,$plan) 
+    {
+        $sql="SELECT `tbl_product`.*,`tbl_product_description`.* FROM tbl_product JOIN tbl_product_description ON `tbl_product`.`id` = `tbl_product_description`.`prod_id` where `tbl_product_description`.`id`='$id'";
+        $data=$this->dbconn->query($sql);
+        $arr=array();
+        while ($row=$data->fetch_assoc()) {
+            if ($row['prod_available']=='1') {
+                $available="available";
+            } else {
+                $available="unavailable";
+            }
+            $decoded_description=json_decode($row['description']);
+            $webspace=$decoded_description->{'webspacein'};
+            $bandwidth=$decoded_description->{'bandwidthin'};
+            $freedomain=$decoded_description->{'freedomain'};
+            $languagetechnology=$decoded_description->{'language'};
+            $mailbox=$decoded_description->{'mailbox'};
+            $prod_parent_id=$row['prod_parent_id'];
+            $sql="SELECT * FROM `tbl_product` WHERE `id`='$prod_parent_id'";
+            $roww=$this->dbconn->query($sql);
+            $data1=$roww->fetch_assoc();
+            if($plan=="annual"){
+                $arr[]=array('id'=>$row['id'],'prod_name'=>$data1['prod_name'],'prod_name'=>$row['prod_name'],'avalibilty'=>$available,'price'=>$row['annual_price'],'sku'=>$row['sku'],'webspace'=>$webspace,'bandwidth'=>$bandwidth,'freedomain'=>$freedomain,'languagetechnology'=>$languagetechnology,'mailbox'=>$mailbox);
+            }else{
+                $arr[]=array('id'=>$row['id'],'prod_name'=>$data1['prod_name'],'prod_name'=>$row['prod_name'],'avalibilty'=>$available,'price'=>$row['mon_price'],'sku'=>$row['sku'],'webspace'=>$webspace,'bandwidth'=>$bandwidth,'freedomain'=>$freedomain,'languagetechnology'=>$languagetechnology,'mailbox'=>$mailbox);
+            }
+            
+        }
+        return json_encode($arr);
+    }
 
 }
 // $db1=new Product();
-// // $db1->showallProducts();
+// $db1->cartProducts(2);
 // $db1->prodDetails(2);
 ?>

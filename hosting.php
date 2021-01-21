@@ -17,6 +17,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <!---fonts-->
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link href='//fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!---fonts-->
@@ -51,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a href="#">view plans</a>
 								</div>
 								<div class="col-md-4 linux-grid1">
-									<img src="images/linux.png" class="img-responsive" alt=""/>
+									<img src="images/1.png" class="img-responsive" alt=""/>
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -240,6 +241,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 
 				</div>
+				<!-- modal -->
+				<div id="edit" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content p-4">
+                <div class="modal-header justify-content-center">
+                    <h5 class="modal-title">SELECT PLAN </h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
+                </div>
+                <div class="modal-body " style="height:30vh">
+				<div class="form-group p-4">
+						<label for="exampleFormControlSelect1">Select Plan Type</label>
+						<select class="form-control" id="select_plan">
+						<option value=''>--SELECT A PLAN--</option>
+						<option value='monthly'>MONTHLY PLAN</option>
+						<option value='annual'>ANNUAL PLAN</option>
+						</select>
+				</div>
+                </div>
+               <div class="modal-footer" >
+               <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
+			   <button type="button" class="btn btn-success" id="addCart">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+</div>
 			<!---footer--->
 				<div class="facebook-section">
 					<div class="container">
@@ -347,9 +374,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <script>
+
 $(document).ready(function(){
 // var a=window.location;
 			// var b=parseURLParams(a)
+			var item;
+			
 			var disp_id=new URLSearchParams(window.location.search).get('id');
 			$.ajax({
 			url:'logics/userhelper.php',
@@ -364,32 +394,54 @@ $(document).ready(function(){
 				var obj = JSON.parse(data);
 				var A='';
 				var newo=obj.data;
-				// for (var i = 0; i < newo.length; i++) {
-				// console.log(obj.data[i]);
-				// var obj1 = JSON.parse(obj.data[i]);
-				// for (var j = 0; j < obj1.length; j++) {
-				// console.log(obj1[j]);
-				// }
-				// }
-			// alert(data);
 		 for (var i = 0; i < newo.length; i++) 
 	{
 	console.log(obj.data[i]);
 	
 	var obj1 = JSON.parse(obj.data[i]);
 	
-	A+='<div class="col-md-3 linux-price"><div class="linux-top"><h4>Standard</h4></div><div class="linux-bottom">';
+	A+='<div id="'+obj1[9]+'" class="col-md-3 linux-price"><div class="linux-top"><h4>Standard</h4></div><div class="linux-bottom">';
 	A+='<h5>'+obj1[0]+' <span class="month">per month</span></h5>';
 	A+='<h5>'+obj1[1]+'<span class="month">per annum</span></h5><h6>'+obj1[5]+' Domain</h6>';
 	A+='<ul><li><strong>'+obj1[3]+'</strong> Disk Space</li>';
 	A+='<li><strong>'+obj1[4]+'</strong> Data Transfer</li><li><strong>'+obj1[8]+'</strong> Email Accounts</li>';
 	
 	A+='<li><strong>'+obj1[6]+'</strong>  Servers</li>';
-	A+='<li><strong>location</strong> : <img src="images/india.png"></li></ul></div><a href="cart.php?id='+obj1[9]+'">buy now</a></div>';
+	A+='<li><strong>location</strong> : <img src="images/india.png"></li></ul></div><a class="cart" href="#">buy now</a></div>';
 	}
 	$("div#detailsOfProducts").html(A); 
 			},
 });
+$("#detailsOfProducts").on("click","a.cart",function(){
+	item=$(this).parent("div").prop('id');
+	$("#edit").modal('show');
+	// console.log(item);
+});
+$('#addCart').click(function(e){
+	// console.log(item);
+	var plan=$("#select_plan option:selected").val();
+if(plan=='')
+{
+	e.preventDefault();
+	alert('Please select a plan to continue');
+}else{
+	// alert(item+'\n'+plan);
+	$.ajax({
+		url:'logics/userhelper.php',
+		method:'POST',
+		data:{
+			case:"addtocart",
+			plan : plan,
+			itemid : item,
+		},
+		success:function(data)
+		{
+        //    alert(data);
+		}
+	});
+}
+});
+
 });
 
 </script>

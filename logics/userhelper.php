@@ -1,8 +1,8 @@
 <?php
-
+session_start();
 
 $case=$_POST['case'];
-// $case='vutb';
+// $case='cartt';
 
     switch($case)
     {
@@ -22,7 +22,7 @@ $user=new User();
         // -------------for login-----------------------------
         case 'l':
             include_once 'User.php';
-$user=new User();
+            $user=new User();
             $email=$_POST['email'];
             $pswd=$_POST['password'];
             // $email="admin@gmail.com";
@@ -35,15 +35,26 @@ $user=new User();
                     $psd_db=$row['password'];
                     if($pswd==$psd_db)
                     {
-                        echo '1';
+                       
+                        if($row['active']=="1")
+                        {
+                            echo '1';//active user
+                        $_SESSION['userid']=$row['id'];
+                        $_SESSION['usermail']=$row['email'];
+                        $_SESSION['username']=$row['name'];
+                        $_SESSION['isAdmin']=$row['is_admin'];
+                        }
+                        else{
+                            echo '-1';//inactive user
+                        }
                     }
                     else{
-                        echo '2';
+                        echo '2';//pawrd not match
                     }
                 
             }
             else{
-                echo '0';
+                echo '0';//email doesn't exist
             }
         break;
         case 'c': 
@@ -64,23 +75,34 @@ $user=new User();
             while($rows=$arr->fetch_array(MYSQLI_ASSOC))
             {
                 $row[]=$rows;
-            }
-            echo json_encode($row);
+       //  "columns" :[
+            //      {"cart":"id"},
+            //      {"cart":"prod_name"},
+            //      {"cart":"avalibilty"},
+            //      {"cart":"sku"},
+			// 	 {"cart":"webspace"},
+			// 	 {"cart":"bandwidth"},
+			// 	 {"cart":"freedomain"}
+                
+                
+            //  ]            echo json_encode($row);
+        }
           
         break;
         case 'add':
             include_once 'Product.php';// add a new product
             $product=new Product();
-            
-            $productcategory=$_POST['productcategory'];
-            $productname=$_POST['productname'];
-            $pageurl=$_POST['pageurl'];
-            $monthlyprice=$_POST['monthlyprice'];
-            $annualprice=$_POST['annualprice'];
-            $sku=$_POST['sku'];
-            $webspace=$_POST['webspace'];
-            $bandwidth=$_POST['bandwidth'];
-            $freedomain=$_POST['freedomain'];
+       //  "columns" :[
+            //      {"cart":"id"},
+            //      {"cart":"prod_name"},
+            //      {"cart":"avalibilty"},
+            //      {"cart":"sku"},
+			// 	 {"cart":"webspace"},
+			// 	 {"cart":"bandwidth"},
+			// 	 {"cart":"freedomain"}
+                
+                
+            //  ]            $freedomain=$_POST['freedomain'];
             $languagetechnology=$_POST['languagetechnology'];
             $mailbox=$_POST['mailbox'];
             $arr=$product->addproduct($productcategory,$productname,$pageurl,
@@ -102,5 +124,33 @@ $user=new User();
             $json=$product->prodDetails($id);
             echo $json;
         break;
+        case "addtocart":
+            $p=$_POST['plan'];
+			$id=$_POST['itemid'];
+            include_once 'Product.php';//fetch product details to add on cart
+            $product=new Product();
+            $json=$product->cartProducts($id,$p);
+            
+            $arr=json_decode($json,true);
+      
+            $arr[0]+=["count"=>"1"];
+            // $_SESSION['cart'][]=array("$k"=>$arr[0]);
+            $_SESSION['cart']['data'][]=$arr[0];
+           
+
+        break;
+        case 'cartt':
+            if(isset($_SESSION['cart']))
+                {
+                    $arr=($_SESSION['cart']);
+                    echo(json_encode($arr));
+                }
+                else
+                {
+                    header('location: ../index.php');
+                    echo "<script>alert('cart is empty');</script>";
+                }
+            break;
+
     }
 

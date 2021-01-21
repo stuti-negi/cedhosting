@@ -1,8 +1,9 @@
 <?php
-// session_start();
-// if (!isset($_SESSION['admin'])) {
-//   header('Location:../login.php');
-// }
+session_start();
+if((!isset($_SESSION['userid']))||($_SESSION['isAdmin']=="0")) {
+
+  header('Location:../../logout.php');
+}
 // $actual_link = $_SERVER["PHP_SELF"];
 ?>
 
