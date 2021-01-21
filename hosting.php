@@ -262,7 +262,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                <div class="modal-footer" >
                <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
-			   <button type="button" class="btn btn-success" id="addCart">ADD TO CART</button>
+			   <button type="submit" class="btn btn-success" id="addCart">ADD TO CART</button>
             </div>
         </div>
     </div>
