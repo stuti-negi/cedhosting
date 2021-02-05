@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <div class="header">
 			<div class="container">
 				<nav class="navbar navbar-default">
@@ -44,7 +45,12 @@
 								<!-- <li><a href="codes.php">Codes</a></li> -->
 								<li><a href="blog.php">Blog</a></li>
 								<li><a href="contact.php">Contact</a></li>
-								<li><a href="cart.php"><i class="fas fa-shopping-cart"></i><span class="badge badge-light">0</span></a></li>
+								<li><a href="cart.php"><i class="fas fa-shopping-cart"></i>
+								<span class="badge badge-light">
+								<?php
+								if(isset($_SESSION['cart'])){ echo count($_SESSION['cart']['data']);}else{echo 0;}
+								?>
+								</span></a></li>
 								<li><a href="login.php">Login</a></li>
 							</ul>
 									  

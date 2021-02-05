@@ -337,6 +337,8 @@
                         $row=$data->fetch_assoc();
                         echo '<option value="'.$row['id'].'">'.$row['prod_name'].'</option>';
                       }
+                      </div>
+                    </div>
 									?>
 					
                     </select>
@@ -393,13 +395,9 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" 
-                        for="annualprice">Enter Annual Price
-                        <span class="important-field"> *</span> </label>
-                        <input type="text" id="annualprice" 
-                        class="form-control" placeholder="Annual Price" 
-                        name="annualprice">
-                        <small class="text-muted">This would be Annual Price</small>
+                        <label class="form-control-label
+  </div>
+</div>would be Annual Price</small>
                         <div class="invalid-feedback">
                           Please Enter Valid Annual Price.
                         </div>

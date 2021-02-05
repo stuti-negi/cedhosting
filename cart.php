@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		
 		
 					<!-- clients -->
-				<div class="clients">
+					<div class="clients">
 					<div class="container">
 						<h3>Some of our satisfied clients include...</h3>
 						<ul>
@@ -108,7 +108,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="col-md-4 what-grid">
 									<div class="what-left">
 									<i class="glyphicon glyphicon-stats" aria-hidden="true"></i>
-									]		<div class="what-right">
+									</div>
+									<div class="what-right">
+										<h4>Expert Web Design</h4>
+										<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore </p>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="what-grids">
+								<div class="col-md-4 what-grid">
+									<div class="what-left">
+									<i class="glyphicon glyphicon-download-alt" aria-hidden="true"></i>
+									</div>
+									<div class="what-right">
 										<h4>Expert Web Design</h4>
 										<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore </p>
 									</div>
@@ -178,7 +192,6 @@ $(document).ready(function(){
 // 		 for (var i = 0; i < newo.length; i++) 
 // 	{
 // 	console.log(obj.data[i]);
-	
 // 	var obj1 = JSON.parse(obj.data[i]);
 	
 // 	A+='<div class="col-md-3 linux-price"><div class="linux-top"><h4>Standard</h4></div><div class="linux-bottom">';
