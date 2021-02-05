@@ -436,7 +436,10 @@ if(plan=='')
 		},
 		success:function(data)
 		{
-        //    alert(data);
+			$("#edit").modal('hide');
+			
+           alert('added to cart');
+		   window.reload();
 		}
 	});
 }

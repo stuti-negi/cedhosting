@@ -75,34 +75,14 @@ $user=new User();
             while($rows=$arr->fetch_array(MYSQLI_ASSOC))
             {
                 $row[]=$rows;
-       //  "columns" :[
-            //      {"cart":"id"},
-            //      {"cart":"prod_name"},
-            //      {"cart":"avalibilty"},
-            //      {"cart":"sku"},
-			// 	 {"cart":"webspace"},
-			// 	 {"cart":"bandwidth"},
-			// 	 {"cart":"freedomain"}
-                
-                
-            //  ]            echo json_encode($row);
+
         }
           
         break;
         case 'add':
             include_once 'Product.php';// add a new product
             $product=new Product();
-       //  "columns" :[
-            //      {"cart":"id"},
-            //      {"cart":"prod_name"},
-            //      {"cart":"avalibilty"},
-            //      {"cart":"sku"},
-			// 	 {"cart":"webspace"},
-			// 	 {"cart":"bandwidth"},
-			// 	 {"cart":"freedomain"}
-                
-                
-            //  ]            $freedomain=$_POST['freedomain'];
+    
             $languagetechnology=$_POST['languagetechnology'];
             $mailbox=$_POST['mailbox'];
             $arr=$product->addproduct($productcategory,$productname,$pageurl,

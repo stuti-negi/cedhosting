@@ -145,6 +145,7 @@
     <script src="https://www.paypal.com/sdk/js?client-id=AUEViApR3XGKwSaGmOT_OeYYUMmzyjX-ovqYhkEvFw7Iw2kz8srfiSOlJYmhhxkDtRPif1xLc2P57hZh"></script>
 <!-- <script>paypal.Buttons().render('#paypal-button');</script>   -->
 <script>
+
   paypal.Buttons({
     createOrder: function(data, actions) {
       // This function sets up the details of the transaction, including the amount and line item details.
